@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NORDIC CAFE & BISTRO | Výběrová káva a artisan pekárna</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #0d0e12;
+      color: #e2e8f0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .gold-text {
+      color: #d4af37;
+    }
+
+    /* NAVIGACE */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 8%;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(13, 14, 18, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #d4af37;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 8%;
+      background: linear-gradient(rgba(13, 14, 18, 0.7), rgba(13, 14, 18, 0.95)), 
+                  url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1600') center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .sub-title {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.85rem;
+      color: #d4af37;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.2rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .btn-gold {
+      background: #d4af37;
+      color: #0d0e12;
+    }
+
+    .btn-gold:hover {
+      background: #f3ca52;
+      transform: translateY(-2px);
+    }
+
+    /* O NÁS */
+    .about {
+      padding: 6rem 8%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-img img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .about-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+    }
+
+    /* MENU */
+    .menu {
+      padding: 6rem 8%;
+      background: #12141c;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .menu-item {
+      background: #181a24;
+      padding: 1.8rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .menu-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .menu-item h3 {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .price {
+      color: #d4af37;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .menu-item p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* REZERVACE */
+    .reservation {
+      padding: 6rem 8%;
+      text-align: center;
+      background: linear-gradient(rgba(13, 14, 18, 0.9), rgba(13, 14, 18, 0.9)), 
+                  url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=1600') center/cover;
+    }
+
+    .reservation-form {
+      max-width: 500px;
+      margin: 2rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .reservation-form input, 
+    .reservation-form select {
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      color: #fff;
+      font-family: inherit;
+    }
+
+    .reservation-form input:focus, 
+    .reservation-form select:focus {
+      outline: none;
+      border-color: #d4af37;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem 8%;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.8rem; }
+      .navbar { padding: 1rem 5%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGACE -->
+  <header class="navbar">
+    <div class="logo">NORDIC <span class="gold-text">CAFE</span></div>
+    <nav class="nav-links">
+      <a href="#about">O nás</a>
+      <a href="#menu">Menu</a>
+      <a href="#rezervace">Rezervace</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="sub-title">Výběrová káva & Artisan Bistro</p>
+      <h1>Výjimečný zážitek v <span class="serif gold-text">každém šálku</span></h1>
+      <p>Čerstvě pražená výběrová káva, ručně pečené kváskové pečivo a poctivé brunchové menu v srdci města.</p>
+      <a href="#rezervace" class="btn btn-gold">Rezervovat stůl</a>
+    </div>
+  </section>
+
+  <!-- O NÁS -->
+  <section id="about" class="about">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800" alt="Interiér kavárny">
+    </div>
+    <div class="about-text">
+      <p class="sub-title">Náš příběh</p>
+      <h2>Káva připravovaná s vášní a precizností</h2>
+      <p>V Nordic Cafe věříme, že dobrá káva dokáže zpříjemnit celý den. Naše zrna pečlivě vybíráme z nejlepších udržitelných farem světa a pražíme s důrazem na plnou chuť a aroma.</p>
+      <p>Každé ráno pro vás navíc pečeme čerstvé skořicové šneky a kváskový chléb z lokálních surovin.</p>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="menu">
+    <div class="section-title">
+      <p class="sub-title">Ochutnejte to nejlepší</p>
+      <h2>Vybraná nabídka</h2>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-item-header">
+          <h3>Espresso Single Origin</h3>
+          <span class="price">65 Kč</span>
+        </div>
+        <p>100% Arabica z mikro-lotu, tóny čokolády a lesního ovoce.</p>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-header">
+          <h3>Flat White</h3>
+          <span class="price">85 Kč</span>
+        </div>
+        <p>Double shot espressa s jemně šlehaným mikropěnovým mlékem.</p>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-header">
+          <h3>Avokádový Chléb s Vejcem</h3>
+          <span class="price">185 Kč</span>
+        </div>
+        <p>Náš kváskový chléb, pošírované vejce, zastřené avokádo, chilli vločky.</p>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-header">
+          <h3>Nordic Cinnamon Roll</h3>
+          <span class="price">75 Kč</span>
+        </div>
+        <p>Tradiční skandinávský skořicový šnek s kardamomem a krémem.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REZERVACE -->
+  <section id="rezervace" class="reservation">
+    <p class="sub-title">Užijte si skvělý čas</p>
+    <h2>Rezervujte si svůj stůl</h2>
+
+    <form class="reservation-form" onsubmit="event.preventDefault(); alert('Rezervace byla odeslána!');">
+      <input type="text" placeholder="Vaše Jméno" required>
+      <input type="email" placeholder="Váš E-mail" required>
+      <select required>
+        <option value="">Počet osob</option>
+        <option>1 - 2 osoby</option>
+        <option>3 - 4 osoby</option>
+        <option>5+ osob</option>
+      </select>
+      <input type="datetime-local" required>
+      <button type="submit" class="btn btn-gold">Potvrdit rezervaci</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 NORDIC CAFE & BISTRO. Web koncept vytvořil Sebastian Bělaška.</p>
+  </footer>
+
+</body>
+</html>
